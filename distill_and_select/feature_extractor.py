@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
 
-from model.layers import *
+from .layers import *
 
 
 class FeatureExtractor(nn.Module):

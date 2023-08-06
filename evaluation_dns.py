@@ -6,9 +6,9 @@ import numpy as np
 
 from tqdm import tqdm
 from torch.utils.data import DataLoader
-from model.selector import SelectorNetwork
+from distill_and_select.selector import SelectorNetwork
 from datasets.generators import DatasetGenerator
-from model.students import FineGrainedStudent, CoarseGrainedStudent
+from distill_and_select.students import FineGrainedStudent, CoarseGrainedStudent
 
 
 @torch.no_grad()

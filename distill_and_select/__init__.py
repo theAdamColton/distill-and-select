@@ -1,6 +1,6 @@
-from model.layers import *
-from model.losses import *
-from model.similarities import *
+from .layers import *
+from .losses import *
+from .similarities import *
 
 
 def check_dims(features, mask=None, axis=0):

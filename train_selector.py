@@ -6,7 +6,7 @@ import argparse
 from tqdm import tqdm
 from datasets.generators import *
 from torch.utils.data import DataLoader
-from model.selector import SelectorNetwork
+from distill_and_select.selector import SelectorNetwork
 from sklearn.metrics import accuracy_score, f1_score
 
 
