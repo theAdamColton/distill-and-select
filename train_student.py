@@ -9,7 +9,7 @@ import torch.nn as nn
 from tqdm import tqdm
 from torch.utils.data import DataLoader
 from datasets.generators import StudentPairGenerator
-from model.students import FineGrainedStudent, CoarseGrainedStudent
+from distill_and_select.students import FineGrainedStudent, CoarseGrainedStudent
 
     
 def main(args):

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from model import *
+from . import *
 
 
 model_urls = {
