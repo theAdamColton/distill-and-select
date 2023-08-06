@@ -151,12 +151,14 @@ class FineGrainedStudent(nn.Module):
             sim = self.f2f_sim(sim)
             sim = rearrange(sim, 'a i j b -> (a b) i j')
             if query_mask is not None and target_mask is not None:
-                sim_mask = torch.einsum('aik,bjk->aijb', query_mask.unsqueeze(-1), target_mask.unsqueeze(-1))
+                query_mask = query_mask.unsqueeze(-1)
+                target_mask = target_mask.unsqueeze(-1)
+                sim_mask = torch.einsum('aik,bjk->aijb', query_mask, target_mask)
                 sim_mask = rearrange(sim_mask, 'a i j b -> (a b) i j')
         if self.fg_type == 'bin':
             sim /= d
         if sim_mask is not None:
-            sim = sim.masked_fill((1 - sim_mask).bool(), 0.0)
+            sim = sim.masked_fill(sim_mask==0, 0.0)
         return sim, sim_mask
                 
     def calculate_video_similarity(self, query, target, query_mask=None, target_mask=None):

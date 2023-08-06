@@ -13,7 +13,7 @@ class FeatureExtractor(nn.Module):
         super(FeatureExtractor, self).__init__()
         self.normalizer = VideoNormalizer()
 
-        self.cnn = models.resnet50(pretrained=True)
+        self.cnn = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V1)
 
         self.rpool = RMAC()
         self.layers = {'layer1': 28, 'layer2': 14, 'layer3': 6, 'layer4': 3}
